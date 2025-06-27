@@ -6,7 +6,7 @@
 /*   By: yabu-sha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 19:10:53 by yabu-sha          #+#    #+#             */
-/*   Updated: 2025/06/27 20:10:31 by yabu-sha         ###   ########.fr       */
+/*   Updated: 2025/06/28 01:55:46 by yazen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@ int	solve(int grid[4][4],int cluse[], int pos)
 {
 	int	row;
 	int	col;
-	int	valid;
 	int	num;
 
 	row = pos / 4;
 	col = pos % 4;
 	num = 1;
-	valid = 1;
 	if(pos == 16)
 		return(is_valid(grid,cluse));
 	
@@ -36,15 +34,16 @@ int	solve(int grid[4][4],int cluse[], int pos)
 		if(can_place(grid,row,col,num))
 		{
 			grid[row][col] = num;
-			
+			int	valid = 1;
+
 			if(col == 3)
-				if(!(check_row_left(grid,row,cluse[8 + row]) == 0
-				  ||check_row_right(grid,row,cluse[12 + row]) == 0))
+				if(check_row_left(grid,row,cluse[8 + row] == 0)
+				  ||check_row_right(grid,row,cluse[12 + row]) == 0)
 					valid = 0;
 
 			if(row == 3)
-				if(!(check_col_top(grid,row,cluse[col]) == 0
-				  ||check_col_bot(grid,row,cluse[4 + col]) == 0))
+				if(check_col_top(grid,col,cluse[col] == 0)
+				  ||check_col_bot(grid,col,cluse[col + 4]) == 0)
 					valid = 0;
 		
 			if(valid && solve(grid,cluse,pos + 1))
