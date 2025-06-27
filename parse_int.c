@@ -6,7 +6,7 @@
 /*   By: yabu-sha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:15:25 by yabu-sha          #+#    #+#             */
-/*   Updated: 2025/06/26 16:23:52 by yabu-sha         ###   ########.fr       */
+/*   Updated: 2025/06/27 17:40:00 by yabu-sha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_putstr(char *str)
 	}
 }
 
-int	*parse_string(char *str)
+int	*parse_string(char *str) //argv[1]
 {
 	int	*c;
 	int	i;
