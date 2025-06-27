@@ -10,19 +10,52 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*parse_string(char *str);
+#include <unistd.h>
+
+int	parse_string(char *str,int *cluse);
 int	solve(int grid[4][4],int cluse[], int pos);
+void	fill_with_zeros1(int grid[4][4])
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			grid[i][j] = 0;
+			j++;
+		}
+		i++;
+	}
+}
 void	print_grid(int grid[4][4]);
+void	ft_putstr(char *str);
+void	ft_putchar(char c);
 
 int	main(int argc,char *argv[])
 {
 	int	grid[4][4];
-	int	*culs;
+	int	cluse[16];
 
-	grid = {{0}};
-	if(argc == 2)
+	 
+	fill_with_zeros1(grid);
+
+	if(argc != 2 || !parse_string(argv[1],cluse))
 	{
-		clus
-		if(!parse)
+		ft_putstr("Error");
+		write(1,"\n",1);
+		return (1);
 	}
+	
+	if (!solve(grid,cluse,0))
+	{
+		ft_putstr("Error");
+		write(1,"\n",1);
+		return (1);
+	}
+	print_grid(grid);
+	return (0);
 }

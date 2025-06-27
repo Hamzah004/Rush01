@@ -18,6 +18,7 @@ void	print_grid(int grid[4][4])
 {
 	int	row;
 	int	col;
+	char c;
 
 	row = 0;
 	while (row < 4)
@@ -25,8 +26,10 @@ void	print_grid(int grid[4][4])
 		col = 0;
 		while(col < 4)
 		{
-		
-			ft_putchar(grid[row][col] + '0');
+			c = grid[row][col] + '0';
+			ft_putchar(c);
+			if(col < 3)
+				ft_putchar(' ');
 		col++;
 		}
 		write(1,"\n",1);

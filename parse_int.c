@@ -29,35 +29,35 @@ void	ft_putstr(char *str)
 	}
 }
 
-int	*parse_string(char *str) //argv[1]
+int	parse_string(char *str , int *cluse) 
 {
-	int	*c;
+	//int	*c;
 	int	i;
 	int	j;
 
-       	c = (int *)malloc(16 * sizeof(int));
+       	//c = (int *)malloc(16 * sizeof(int));
 	i = 0;
 	j = 0;
 	while(str[i] && j < 16)
 	{
 		if(str[i] >= '1' && str[i] <= '4')
 		{
-			c[j] = str[i] - '0';
+			cluse[j] = str[i] - '0';
 			j++;
 		}
 		else if(str[i] !=  ' ')
 		{
-			free(c);
-			return NULL;
+		//	free(c);
+			return 0;
 		}
 		i++;
 	}
 	if(j != 16)
 	{                                  
-		free(c);
-		return NULL;
+	//	free(c);
+		return 0;
 	}
 
-	return c;
+	return 1;
 
 }

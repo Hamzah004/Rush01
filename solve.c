@@ -46,12 +46,13 @@ int	solve(int grid[4][4],int cluse[], int pos)
 				if(!(check_col_top(grid,row,*cluse) == 0
 				  ||check_col_bot(grid,row,*cluse) == 0))
 					valid = 0;
-		num++;
-		}
-		if(valid && solve(grid,cluse,pos + 1))
-			return (1);
+		
+			if(valid && solve(grid,cluse,pos + 1))
+				return (1);
 
 		grid[row][col] = 0;
+		}
+		num++;
 	}
 	return (0);
 }
