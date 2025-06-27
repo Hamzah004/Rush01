@@ -75,7 +75,7 @@ int     check_col_top(int grid[4][4], int col, int clues)
         i = 1;
         max = grid[0][col];
         visible = 1;
-        while (i >= 0)
+        while (i < 4)
         {            
                 if (grid[i][col] > max)
                 {

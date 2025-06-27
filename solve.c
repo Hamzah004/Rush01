@@ -38,13 +38,13 @@ int	solve(int grid[4][4],int cluse[], int pos)
 			grid[row][col] = num;
 			
 			if(col == 3)
-				if(!(check_row_left(grid,row,*cluse) == 0
-				  ||check_row_right(grid,row,*cluse) == 0))
+				if(!(check_row_left(grid,row,cluse[8 + row]) == 0
+				  ||check_row_right(grid,row,cluse[12 + row]) == 0))
 					valid = 0;
 
 			if(row == 3)
-				if(!(check_col_top(grid,row,*cluse) == 0
-				  ||check_col_bot(grid,row,*cluse) == 0))
+				if(!(check_col_top(grid,row,cluse[col]) == 0
+				  ||check_col_bot(grid,row,cluse[4 + col]) == 0))
 					valid = 0;
 		
 			if(valid && solve(grid,cluse,pos + 1))
