@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	can_place(int grid[][], int row, int col, int num);
-int	check_row_left(int grid[][], int row, int clues);
-int     check_row_right(int grid[][], int row, int clues);
-int     check_col_top(int grid[][], int col, int clues);
-int     check_col_bot(int grid[][], int col, int clues);
-int	is_valid(int grid[][], int cluse[]);
+int	can_place(int grid[4][4], int row, int col, int num);
+int	check_row_left(int grid[4][4], int row, int clues);
+int     check_row_right(int grid[4][4], int row, int clues);
+int     check_col_top(int grid[4][4], int col, int clues);
+int     check_col_bot(int grid[4][4], int col, int clues);
+int	is_valid(int grid[4][4], int cluse[]);
 
-int	solve(int grid[][],int cluse[], int pos)
+int	solve(int grid[4][4],int cluse[], int pos)
 {
 	int	row;
 	int	col;
@@ -29,7 +29,7 @@ int	solve(int grid[][],int cluse[], int pos)
 	num = 1;
 	valid = 1;
 	if(pos == 16)
-		return(is_valid(grid,clues));
+		return(is_valid(grid,cluse));
 	
 	while(num <= 4)
 	{
@@ -38,13 +38,13 @@ int	solve(int grid[][],int cluse[], int pos)
 			grid[row][col] = num;
 			
 			if(col == 3)
-				if(!(check_row_left(grid,row,clues) == 0
-				  ||check_row_right(grid,row,clues) == 0))
+				if(!(check_row_left(grid,row,*cluse) == 0
+				  ||check_row_right(grid,row,*cluse) == 0))
 					valid = 0;
 
 			if(row == 3)
-				if(!(check_col_top(grid,row,clues) == 0
-				  ||check_col_bot(grid,row,clues) == 0))
+				if(!(check_col_top(grid,row,*cluse) == 0
+				  ||check_col_bot(grid,row,*cluse) == 0))
 					valid = 0;
 		num++;
 		}

@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 void	ft_putchar(char c);
 
 
-void	print_grid(int grid[][])
+void	print_grid(int grid[4][4])
 {
 	int	row;
 	int	col;
@@ -25,7 +26,7 @@ void	print_grid(int grid[][])
 		while(col < 4)
 		{
 		
-			ft_puthcar(grid[row][col] + '0');
+			ft_putchar(grid[row][col] + '0');
 		col++;
 		}
 		write(1,"\n",1);

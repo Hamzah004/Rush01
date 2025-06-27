@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 
 int	*parse_string(char *str);
-int	solve(int grid[][],int cluse[], int pos);
-void	print_grid(int grid[][]);
+int	solve(int grid[4][4],int cluse[], int pos);
+void	print_grid(int grid[4][4]);
 
 int	main(int argc,char *argv[])
 {
-	int	grid[][];
+	int	grid[4][4];
 	int	*culs;
 
 	grid = {{0}};

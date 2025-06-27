@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	can_place(int grid[][], int row, int col, int num)
+int	can_place(int grid[4][4], int row, int col, int num)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ int	can_place(int grid[][], int row, int col, int num)
 	return (1);
 }
 
-int	check_row_left(int grid[][], int row, int clues)
+int	check_row_left(int grid[4][4], int row, int clues)
 {
 	int	i;
 	int	visible;
@@ -45,7 +45,7 @@ int	check_row_left(int grid[][], int row, int clues)
 	return (visible == clues);
 }
 
-int     check_row_right(int grid[][], int row, int clues)
+int     check_row_right(int grid[4][4], int row, int clues)
 {       
         int     i;
         int     visible;
@@ -66,7 +66,7 @@ int     check_row_right(int grid[][], int row, int clues)
         return (visible == clues);
 }
 
-int     check_col_top(int grid[][], int col, int clues)
+int     check_col_top(int grid[4][4], int col, int clues)
 {
         int     i;
         int     visible;
@@ -88,7 +88,7 @@ int     check_col_top(int grid[][], int col, int clues)
 }
 
 
-int     check_col_bot(int grid[][], int col, int clues)
+int     check_col_bot(int grid[4][4], int col, int clues)
 {
         int     i;
         int     visible;
@@ -109,7 +109,7 @@ int     check_col_bot(int grid[][], int col, int clues)
         return (visible == clues);
 }
 
-int	is_valid(int grid[][], int cluse[])
+int	is_valid(int grid[4][4], int cluse[])
 {
 	int	i;
 
@@ -118,11 +118,11 @@ int	is_valid(int grid[][], int cluse[])
 	{
 		if(!check_col_top(grid,i,cluse[i]))
 			return (0);
-		if(!chheck_col_bot(grid,i,cluse[i+4]))
+		if(!check_col_bot(grid,i,cluse[i+4]))
 			return (0);
-		if(!chheck_row_left(grid,i,cluse[i+8]))
+		if(!check_row_left(grid,i,cluse[i+8]))
                         return (0);
-		if(!chheck_row_right(grid,i,cluse[i+12]))
+		if(!check_row_right(grid,i,cluse[i+12]))
                         return (0);
 		i++;
 	}
